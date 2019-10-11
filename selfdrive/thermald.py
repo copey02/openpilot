@@ -89,7 +89,7 @@ _TEMP_THRS_H = [50., 65., 80., 10000]
 # temp thresholds to control fan speed - low hysteresis
 _TEMP_THRS_L = [42.5, 57.5, 72.5, 10000]
 # fan speed options
-_FAN_SPEEDS = [0, 16384, 32768, 65535]
+_FAN_SPEEDS = [0, 0, 0, 0]
 # max fan speed only allowed if battery is hot
 _BAT_TEMP_THERSHOLD = 45.
 
@@ -109,7 +109,7 @@ def handle_fan(max_cpu_temp, bat_temp, fan_speed):
     # no max fan speed unless battery is hot
     fan_speed = min(fan_speed, _FAN_SPEEDS[-2])
 
-  set_eon_fan(fan_speed//16384)
+  set_eon_fan(fan_speed//0)
 
   return fan_speed
 
